@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<body>
+   <input id="arrayInput">
+  <button onclick="reverseHandler()">Reverse</button>
+
+  <div id="b"></div>
+
+  <script>
+    const reverseArray = function(arr) {
+      let reversed = [];
+      for (let i = arr.length - 1; i >= 0; i--) {
+        reversed.push(arr[i]);
+      }
+      return reversed;
+    };
+
+    function reverseHandler() {
+      let input = document.getElementById("arrayInput").value;
+      let arr = input.split(",").map(Number);
+
+      let b = reverseArray(arr);
+      document.getElementById("b").innerHTML = `
+        <p><b>Original Array:</b> [${arr.join(", ")}]</p>
+        <p><b>Reversed Array:</b> [${b.join(", ")}]</p>
+      `;
+    }
+  </script>
+</body>
+</html>
