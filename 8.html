@@ -1,1 +1,42 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <button onclick="ref()">Pass by Reference</button>
+  <button onclick="val()">Pass by Value (Copy)</button>
+
+  <div id="a"></div>
+
+  <script>
+    function arr(arr) {
+      arr.push(9); 
+    }
+
+    function ref() {
+      let original = [1, 2, 3];
+      let before = [...original]; 
+      arr(original); 
+
+      document.getElementById("a").innerHTML = `
+        <b>Pass by Reference:</b><br>
+        Original before: [${before}]<br>
+        Original after: [${original}]
+      `;
+    }
+
+    function val() {
+      let original = [1, 2, 3];
+      let before = [...original];    
+      let copy = [...original];      
+      arr(copy);             
+
+      document.getElementById("a").innerHTML = `
+        <b>Pass by Value:</b><br>
+        Original before: [${before}]<br>
+        Original after: [${original}]<br>
+        Modified Copy: [${copy}]
+      `;
+    }
+  </script>
+</body>
+</html>
