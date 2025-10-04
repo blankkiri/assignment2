@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<body>
+  <h2 id="a"></h2>
+
+  <script>
+    let age = Number(prompt("Enter your age:"));
+
+    let category;
+
+    if (age < 18) {
+      category = "Minor";
+    } else if (age <= 60) {
+      category = "Adult";
+    } else {
+      category = "Senior";
+    }
+    document.getElementById("s").innerText = `You are a ${category}.`;
+  </script>
+</body>
+</html>
