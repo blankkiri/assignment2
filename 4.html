@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<body>
+  <div id="a"></div>
+
+  <script>
+    function a(numbers) {
+      const result = [];
+
+      for (let i = 0; i < numbers.length; i++) {
+        const num = parseInt(numbers[i].trim());
+
+        if (num % 3 === 0 && num % 5 === 0) {
+          result.push("FizzBuzz");
+        } else if (num % 3 === 0) {
+          result.push("Fizz");
+        } else if (num % 5 === 0) {
+          result.push("Buzz");
+        } else {
+          result.push(num.toString());
+        }
+      }
+
+      return result;
+    }
+
+    const input = prompt("Enter numbers separated by commas");
+    if (input !== null) {
+      const numberArray = input.split(',');
+      const output = a(numberArray);
+      const resultDiv = document.getElementById("a").innerHTML = output.map(item => `<div>${item}</div>`).join("");
+    }
+  </script>
+
+</body>
+</html>
