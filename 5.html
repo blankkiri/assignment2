@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<body>
+  <input id="a" placeholder="marks">
+  <button onclick="analyzeMarks()">Analyze</button>
+
+  <div id="b"></div>
+
+  <script>
+    const marksAnalyzer = function(N, marks) {
+      let total = marks.reduce((sum, m) => sum + m, 0);
+      let average = total / N;
+      let highest = Math.max(...marks);
+      let lowest = Math.min(...marks);
+
+      return {
+        total: total,
+        average: average,
+        highest: highest,
+        lowest: lowest
+      };
+    };
+
+    function analyzeMarks() {
+      let input = document.getElementById("a").value;
+      let marks = input.split(",").map(Number);
+      let N = marks.length;
+
+      let b = marksAnalyzer(N, marks);
+
+      document.getElementById("b").innerHTML = `
+        <p><b>Total Marks:</b> ${b.total}</p>
+        <p><b>Average Marks:</b> ${b.average.toFixed(2)}</p>
+        <p><b>Highest Marks:</b> ${b.highest}</p>
+        <p><b>Lowest Marks:</b> ${b.lowest}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
