@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<body>
+    <input id="arr">
+    <select id="operation">
+        <option value="sum">Sum</option>
+        <option value="product">Product</option>
+        <option value="average">Average</option>
+    </select>
+    <button onclick="cal()">Calculate</button>
+
+    <div id="b"></div>
+
+    <script>
+        function calculate(arr, callback, operation) {
+            return callback(arr, operation);
+        }
+        function processArray(arr, operation) {
+            if (operation === "sum") {
+                return arr.reduce((a, b) => a + b, 0);
+            } else if (operation === "product") {
+                return arr.reduce((a, b) => a * b, 1);
+            } else if (operation === "average") {
+                return arr.reduce((a, b) => a + b, 0) / arr.length;
+            } else {
+                return "Invalid operation!";
+            }
+        }
+
+        function cal() {
+            let arr = document.getElementById("arr").value.split(" ").map(Number);
+            let operation = document.getElementById("operation").value;
+
+            let result = calculate(arr, processArray, operation);
+
+            document.getElementById("b").innerHTML = `
+        Operation: ${operation}<br>
+        Result: ${result}
+      `;
+        }
+    </script>
+</body>
+
+</html>
