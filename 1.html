@@ -5,16 +5,17 @@
   <script>
     let age = Number(prompt("Enter your age:"));
 
-    let category;
+    let group;
 
     if (age < 18) {
-      category = "Minor";
+      group = "Minor";
     } else if (age <= 60) {
-      category = "Adult";
+      group = "Adult";
     } else {
-      category = "Senior";
+      group = "Senior";
     }
-    document.getElementById("s").innerText = `You are a ${category}.`;
+    document.getElementById("s").innerText = `${group}.`;
   </script>
 </body>
 </html>
+
