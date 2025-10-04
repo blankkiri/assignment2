@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<body>
+  <input id="inpu1">
+  <button onclick="sumHandler()">Sum</button>
+
+  <div id="b"></div>
+
+  <script>
+    const sum = function(...nums) {
+      return nums.reduce((sum, n) => sum + n, 0);
+    };
+
+    function sumHandler() {
+      let input = document.getElementById("inpu1").value;
+      let numbers = input.split(" ").map(Number);
+
+      let total = sum(...numbers);
+
+      document.getElementById("b").innerHTML = `
+        <p><b>Numbers:</b> [${numbers.join(", ")}]</p>
+        <p><b>Sum:</b> ${total}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
