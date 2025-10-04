@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<body>
+  <input  id="n" placeholder="Enter N">
+  <input id="arr" placeholder="Enter N integers">
+  <button onclick="trans()">Transform</button>
+
+  <div id="a"></div>
+
+  <script>
+    function trans() {
+      let N = parseInt(document.getElementById("n").value);
+      let arr = document.getElementById("arr").value.split(" ").map(Number);
+
+      let square = arr.map(x => x * x);
+
+      let filter = square.filter(x => x >= 25);
+
+      document.getElementById("a").innerHTML = `
+        <b>a:</b> ${filter.join(" ")}
+      `;
+    }
+  </script>
+</body>
+</html>
